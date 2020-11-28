@@ -8,6 +8,8 @@ import (
 )
 
 var (
+	err                 error
+	originValue         float64
 	originUnit          string
 	shouldConvertAgain  string
 	errInvalidArguments = errors.New("Invalid Arguments")
@@ -22,7 +24,11 @@ func main() {
 	originUnit = strings.ToUpper(os.Args[1])
 
 	for {
-		fmt.Println("What is the current temperature in" + originUnit + " ? ")
+		fmt.Println("What is the current temperature in " + originUnit + " ? ")
+		_, err = fmt.Scanln(&originValue)
+		if err != nil {
+			printError(errReadingInput)
+		}
 
 		fmt.Println("Would you like to convert another temperature ? (y/n)")
 
