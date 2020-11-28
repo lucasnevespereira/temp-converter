@@ -14,6 +14,10 @@ var (
 )
 
 func main() {
+	if len(os.Args) != 2 {
+		printError(errInvalidArguments)
+	}
+
 	for {
 		fmt.Println("What is the current temperature in" + originUnit + " ? ")
 
