@@ -1,12 +1,16 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"os"
 )
 
 var (
-	originUnit         string
-	shouldConvertAgain string
+	originUnit          string
+	shouldConvertAgain  string
+	errInvalidArguments = errors.New("Invalid Arguments")
+	errReadingInput     = errors.New("Error reading input")
 )
 
 func main() {
@@ -20,4 +24,9 @@ func main() {
 			break
 		}
 	}
+}
+
+func printError(err error) {
+	fmt.Fprintf(os.Stderr, "error: %v\n", err)
+	os.Exit(1)
 }
