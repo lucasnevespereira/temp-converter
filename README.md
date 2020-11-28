@@ -4,8 +4,9 @@ Temperature converter cli (Farenheit/Celsius) made with Golang
 
 ## Usage
 
-To build an executable run
+Compile with `go build -o temp`.
 
-```
-go build temp-converter-cli
-```
+Then, invoke the binary passing as argument the unit of temperature we want to convert **from**.
+For example:
+
+`./temp C` to convert from Celsius to Fahrenheit or `./temp F` to convert from Fahrenheit to Celsius.
